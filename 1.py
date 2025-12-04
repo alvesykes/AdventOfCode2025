@@ -38,7 +38,6 @@ def main():
                 i = rotateR(numb, i)
             if i == 0:
                 result +=1
-            print(i)
     print(result)
     file.close()
 
