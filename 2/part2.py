@@ -3,9 +3,18 @@ def checkRepeatedSequences(start, end):
     for number in range(start, end + 1):
         num_str = str(number)
         length = len(num_str)
-        print(num_str[0:length//2], num_str[length//2:])
-        if(num_str[0:length//2] == num_str[length//2:]):
+        
+        is_invalid = False
+        for pattern_len in range(1, length):
+            if length % pattern_len == 0:
+                pattern = num_str[:pattern_len]
+                if pattern * (length // pattern_len) == num_str:
+                    is_invalid = True
+                    break
+        
+        if is_invalid:
             result += number
+    
     return result
 
 def main():
